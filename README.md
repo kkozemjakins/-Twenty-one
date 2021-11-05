@@ -2,7 +2,8 @@
   Twenty-one
 
 ## Apraksts
-  
+  	Es gribu uztaisīt spēli "21".
+	Spēles laikā spēlētājs savāc kārtis no klāja, un viņa mērķis ir iegūt 21 punktu un pārspēt dīleru.
   
 ## Galvenās funkcijas
 	- Ievadīt tekstu
