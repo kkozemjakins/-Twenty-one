@@ -10,9 +10,12 @@
 	- Ievadīt datus
 		>Ielikt likmi, ņemt kartes vai ne, utt.
 	- Apstrādāt datus
+		>Spēlētājs uzvarēja/zaudēja
+		>Likme, laimēja/zaudēta
+		>Kāda kārts izvilkta!
 	- utt
 ## Izmantotās tehnoloģijas
 	- C++
-	- SFML library
+
 ## Izmantotie avoti
-	- [SFML dokumentācija](https://www.sfml-dev.org/style.php)
+	- http://cppstudio.com/post/339
