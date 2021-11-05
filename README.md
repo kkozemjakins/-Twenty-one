@@ -8,7 +8,7 @@
   
 ## Galvenās funkcijas
 	- Ievadīt datus
-		g
+		>Ielikt likmi, ņemt kartes vai ne, utt.
 	- Apstrādāt datus
 	- utt
 ## Izmantotās tehnoloģijas
