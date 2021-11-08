@@ -2,7 +2,7 @@
   Blackjack
 
 ## Apraksts
-  Es gribu uztaisīt spēli "21".
+  Es gribu uztaisīt spēli "Blackjack".
   Spēles laikā spēlētājs savāc kārtis no klāja, un viņa mērķis ir iegūt 21 punktu un pārspēt dīleru
 	
   
