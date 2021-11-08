@@ -1,5 +1,5 @@
 # Projekta nosaukums
-  Twenty-one
+  Blackjack
 
 ## Apraksts
   Es gribu uztaisīt spēli "21".
