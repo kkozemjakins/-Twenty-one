@@ -311,7 +311,7 @@ int main() {
 			std::cout << "Your current balance:" << balance << std::endl;
 		}
 
-		if (playerScore == dilerScore && blackjackPlayer == 0 && blackjackDiler == 0) {
+		if (playerScore == dilerScore && dilerScore <= 21 && blackjackPlayer == 0 && blackjackDiler == 0) {
 			koef = 1;
 
 			std::cout << "It's a draw! (+" << bet * koef << ")" << std::endl;
