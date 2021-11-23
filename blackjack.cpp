@@ -279,7 +279,6 @@ int main() {
 			}
 			std::cout << "Dealer cards: " << dilerCards << " Points: " << dilerScore << std::endl;
 			std::cout << std::endl;
-			std::cout << "Your current balance:" << balance << std::endl;
 
 
 			Sleep(700);
