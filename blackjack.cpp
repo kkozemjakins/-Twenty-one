@@ -37,7 +37,7 @@ int main() {
 	std::cout << "Welcome to 'Blackajack'!" << std::endl;
 
 
-	while (balance != 0 && answerAllGame != "no") {
+	while (balance != 0 && answerAllGame != "-") {
 
 
 		std::string DilerPrintCards;/*переменная которая отображает только одну карту дилера*/
