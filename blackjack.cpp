@@ -1,4 +1,4 @@
-﻿#include <stdio.h>   
+#include <stdio.h>   
 #include <stdlib.h>     
 #include <time.h>     
 #include <windows.h>
@@ -37,7 +37,7 @@ int main() {
 	std::cout << "Welcome to 'Blackajack'!" << std::endl;
 
 
-	while (balance != 0 && answerAllGame != "-") {
+	while (balance != 0) {
 
 
 		std::string DilerPrintCards;/*переменная которая отображает только одну карту дилера*/
@@ -110,6 +110,10 @@ int main() {
 
 		answerAllGame = answer;
 
+		if (answerAllGame == "-") {
+			break;
+		}
+
 		while (answer != "-" && answer != "+") {
 			std::cout << "Dont understand: ";
 			std::cin >> answer;
@@ -177,10 +181,13 @@ int main() {
 
 
 		if (playerScore == 21) {/*проверка на блекжек у игрока*/
-			std::cout << "Player got a BLACKJACK!";
-
+			std::cout << "Player got a BLACKJACK!" << std::endl;
+			blackjackPlayer++;
 		}
 
+		if (dilerScore == 21) {
+			blackjackDiler++;
+		}
 
 		/*Player take a card*/
 
@@ -226,16 +233,16 @@ int main() {
 		system("cls");
 
 
-		if (playerScore == 21) {/*проверка на блекжек у игрока*/
+		if (blackjackPlayer == 1) {/*проверка на блекжек у игрока*/
 			std::cout << "Player got a BLACKJACK!" << std::endl;
-			blackjackPlayer++;
+
 		}
 		std::cout << "Your cards: " << playerCards << " Points: " << playerScore << std::endl;
 		std::cout << std::endl;
 
-		if (dilerScore == 21) {
+		if (blackjackDiler == 1) {
 			std::cout << "dealer got a BLACKJACK!" << std::endl;
-			blackjackDiler++;
+
 		}
 		std::cout << "Dealer cards: " << dilerCards << " Points: " << dilerScore << std::endl;
 		std::cout << std::endl;
@@ -267,12 +274,12 @@ int main() {
 				DilerCheckA = DilerCheckA - 1;
 			}
 
-			if (blackjackPlayer== 1) {
+			if (blackjackPlayer == 1) {
 				std::cout << "Player got a BLACKJACK!" << std::endl;
 			}
 			std::cout << "Your cards: " << playerCards << " Points: " << playerScore << std::endl;
 			std::cout << std::endl;
-			
+
 
 			if (blackjackDiler == 1) {
 				std::cout << "dealer got a BLACKJACK!" << std::endl;
@@ -291,7 +298,7 @@ int main() {
 			std::cout << "Your current balance:" << balance << std::endl;
 		}
 
-		if (playerScore <= 21 && dilerScore > 21 && blackjackPlayer == 0|| dilerScore < playerScore && playerScore <= 21 && blackjackPlayer == 0) {
+		if (playerScore <= 21 && dilerScore > 21 && blackjackPlayer == 0 || dilerScore < playerScore && playerScore <= 21 && blackjackPlayer == 0) {
 			koef = 2;
 
 			std::cout << "You win!(+" << bet * koef << ")" << std::endl;
@@ -322,12 +329,12 @@ int main() {
 
 		}
 
-		Sleep(3000);
+		Sleep(4000);
 
 		system("cls");
 
 	}
-	 
+
 	std::cout << std::endl;
 
 
@@ -336,6 +343,10 @@ int main() {
 		std::cout << "Your current balance is 0. " << std::endl;
 		std::cout << "So you can leave :(" << std::endl;
 	}
+	else{
+		std::cout << "Ok. Until next time";
+	}
 
 	return 0;
 }
+
