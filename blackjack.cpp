@@ -260,7 +260,6 @@ int main() {
 				dilerScore += 1;
 				dilerCards += "A ";
 
-				DilerCheckA += 1;
 
 			}
 			else {
@@ -329,7 +328,7 @@ int main() {
 
 		}
 
-		Sleep(4000);
+		Sleep(5000);
 
 		system("cls");
 
