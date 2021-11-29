@@ -100,7 +100,7 @@ int main() {
 			10,10,10,10,
 			10,10,10,10,
 			10,10,10,10,
-			11,11,11,11, };
+			11,11,11,11 };
 
 		int checkDeck[52]{};/*Массив в котором записываются карты которые повторились*/
 
@@ -157,7 +157,7 @@ int main() {
 
 			CardNumber = CardPick(checkDeck);/*выберает случайную карту*/
 			if (deck[CardNumber] == "A ") {
-				PlayerCheckA++;
+				PlayerCheckA += 1;
 			}
 			playerScore += deckPoints[CardNumber];
 			playerCards += deck[CardNumber];
@@ -171,7 +171,7 @@ int main() {
 
 			CardNumber = CardPick(checkDeck);
 			if (deck[CardNumber] == "A ") {
-				DilerCheckA++;
+				DilerCheckA +=1;
 			}
 			dilerScore += deckPoints[CardNumber];
 			dilerCards += deck[CardNumber];
