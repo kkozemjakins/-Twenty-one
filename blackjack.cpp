@@ -36,7 +36,7 @@ int main() {
 
 	std::string answerAllGame = "yes";/*Хочет ли игрок продолжать играть*/
 
-	float balance = 10000;/*переменная котороя отображает баланс игрока*/
+	float balance = 1000;/*переменная котороя отображает баланс игрока*/
 
 	std::cout << "Welcome to 'Blackajack'!" << std::endl;
 
