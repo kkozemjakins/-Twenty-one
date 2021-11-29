@@ -5,7 +5,8 @@
 #include <iostream>
 
 
-int CardPick(int b[36]) {/*b - deck check for duclicate*/
+
+int CardPick(int b[52]) {/*b - deck check for duclicate*/
 	int cardElement;
 
 	cardElement = rand() % 52;
@@ -29,10 +30,13 @@ int CardPick(int b[36]) {/*b - deck check for duclicate*/
 
 int main() {
 	srand(time(NULL));
+	system("title Blackjack");
+
+
 
 	std::string answerAllGame = "yes";/*Хочет ли игрок продолжать играть*/
 
-	int balance = 1000;/*переменная котороя отображает баланс игрока*/
+	float balance = 10000;/*переменная котороя отображает баланс игрока*/
 
 	std::cout << "Welcome to 'Blackajack'!" << std::endl;
 
@@ -52,7 +56,7 @@ int main() {
 
 		std::string dilerCards;/*Переменная в которой хранятся взятые карты*/
 
-		int bet;/*Переменная в которой хранится ставка игрока*/
+		float bet;/*Переменная в которой хранится ставка игрока*/
 
 		float koef;/*коеффицент выплат(x2.5|x1.5|x1)*/
 
@@ -132,13 +136,17 @@ int main() {
 		std::cout << "" << std::endl;
 
 
-		std::cout << "Balance:" << balance << std::endl;
-		std::cout << "Your bet:";
+		std::cout << "Balance:" << balance << "$" << std::endl;
+		std::cout << "Your bet(more then 0$ / max - no limit):";
 		std::cin >> bet;
 
 
 		while (bet > balance) {
 			std::cout << "Your bet more than balance(input again):";
+			std::cin >> bet;
+		}
+		while (bet <= 0 ) {
+			std::cout << "Your bet less or equel the 0$ (input again):";
 			std::cin >> bet;
 		}
 
@@ -153,6 +161,9 @@ int main() {
 			}
 			playerScore += deckPoints[CardNumber];
 			playerCards += deck[CardNumber];
+			if (PlayerCheckA == 2) {
+				playerScore = playerScore - 10;
+			}
 		}
 
 
@@ -164,6 +175,10 @@ int main() {
 			}
 			dilerScore += deckPoints[CardNumber];
 			dilerCards += deck[CardNumber];
+
+			if (DilerCheckA == 2) {
+				dilerScore = dilerScore - 10;
+			}
 
 
 		}
@@ -294,7 +309,8 @@ int main() {
 		std::cout << std::endl;
 		if (playerScore > 21 || playerScore < dilerScore && dilerScore <= 21 || blackjackPlayer == 0 && blackjackDiler == 1) {
 			std::cout << "You lose!" << std::endl;
-			std::cout << "Your current balance:" << balance << std::endl;
+			std::cout << "Your current balance:" << balance << "$" << std::endl;
+
 		}
 
 		if (playerScore <= 21 && dilerScore > 21 && blackjackPlayer == 0 || dilerScore < playerScore && playerScore <= 21 && blackjackPlayer == 0) {
@@ -304,7 +320,7 @@ int main() {
 
 			balance += bet * koef;
 
-			std::cout << "Your current balance:" << balance << std::endl;
+			std::cout << "Your current balance:" << balance << "$" << std::endl;
 		}
 
 		if (blackjackPlayer == 1) {
@@ -314,7 +330,7 @@ int main() {
 
 			balance += bet * koef;
 
-			std::cout << "Your current balance:" << balance << std::endl;
+			std::cout << "Your current balance:" << balance << "$" << std::endl;
 		}
 
 		if (playerScore == dilerScore && dilerScore <= 21 && blackjackPlayer == 0 && blackjackDiler == 0) {
@@ -324,7 +340,7 @@ int main() {
 
 			balance += bet * koef;
 
-			std::cout << "Your current balance:" << balance << std::endl;
+			std::cout << "Your current balance:" << balance << "$" << std::endl;
 
 		}
 
@@ -348,4 +364,3 @@ int main() {
 
 	return 0;
 }
-
