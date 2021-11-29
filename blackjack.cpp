@@ -20,13 +20,23 @@ int CardPick(int b[52]) {/*b - deck check for duclicate*/
 		return cardElement;
 
 	}
-
-	
-
-	
 }
 
+int WrongInput(float a) {
+	std::cout << std::endl;
+	
+	std::cin.clear();
+	std::cout << "You entered not a bet(input again):";
+	std::cin >> a;
 
+	if (std::cin.fail()) {
+			WrongInput(a);
+	}
+	else {
+		return a;
+	}
+	
+}
 
 int main() {
 	srand(time(NULL));
@@ -140,6 +150,9 @@ int main() {
 		std::cout << "Your bet(more then 0$ / max - no limit):";
 		std::cin >> bet;
 
+		if (std::cin.fail()) {
+			bet = WrongInput(bet);
+		}
 
 		while (bet > balance) {
 			std::cout << "Your bet more than balance(input again):";
@@ -209,6 +222,12 @@ int main() {
 		while (answer != "-" && playerScore != 21 && playerScore < 21) {
 			std::cout << "more(+/-):";
 			std::cin >> answer;
+
+			while (answer != "-" && answer != "+") {
+				std::cout << "Dont understand: ";
+				std::cin >> answer;
+
+			};
 
 			if (answer == "-") {
 				break;
