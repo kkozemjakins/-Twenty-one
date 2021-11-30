@@ -22,20 +22,20 @@ int CardPick(int b[52]) {/*b - deck check for duclicate*/
 	}
 }
 
-int WrongInput(float a) {
+float WrongInput(float a) {
 	std::cout << std::endl;
-	
+
 	std::cin.clear();
 	std::cout << "You entered not a bet(input again):";
 	std::cin >> a;
 
 	if (std::cin.fail()) {
-			WrongInput(a);
+		WrongInput(a);
 	}
 	else {
 		return a;
 	}
-	
+
 }
 
 int main() {
@@ -154,13 +154,16 @@ int main() {
 			bet = WrongInput(bet);
 		}
 
-		while (bet > balance) {
-			std::cout << "Your bet more than balance(input again):";
-			std::cin >> bet;
-		}
-		while (bet <= 0 ) {
-			std::cout << "Your bet less or equel the 0$ (input again):";
-			std::cin >> bet;
+		while (bet > balance || bet <= 0) {
+			if (bet > balance) {
+				std::cout << "Your bet more than balance(input again):";
+				std::cin >> bet;
+			}
+			
+			if (bet <= 0) {
+				std::cout << "Your bet less or equel the 0$ (input again):";
+				std::cin >> bet;
+			}
 		}
 
 		balance = balance - bet;
@@ -184,7 +187,7 @@ int main() {
 
 			CardNumber = CardPick(checkDeck);
 			if (deck[CardNumber] == "A ") {
-				DilerCheckA +=1;
+				DilerCheckA += 1;
 			}
 			dilerScore += deckPoints[CardNumber];
 			dilerCards += deck[CardNumber];
@@ -239,7 +242,7 @@ int main() {
 			CardNumber = CardPick(checkDeck);/*выберает случайную карту*/
 
 
-			if (deckPoints[CardNumber] == 11 && deckPoints[CardNumber] + dilerScore > 21) {
+			if (deckPoints[CardNumber] == 11 && deckPoints[CardNumber] + playerScore > 21) {
 				playerScore += 1;
 				playerCards += "A ";
 
@@ -377,7 +380,7 @@ int main() {
 		std::cout << "Your current balance is 0. " << std::endl;
 		std::cout << "So you can leave :(" << std::endl;
 	}
-	else{
+	else {
 		std::cout << "Ok. Until next time";
 	}
 
